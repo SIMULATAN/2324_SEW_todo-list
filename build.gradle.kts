@@ -16,6 +16,7 @@ val quarkusPlatformVersion: String by project
 dependencies {
 	implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
 	implementation("io.quarkus:quarkus-hibernate-orm")
+	implementation("io.quarkus:quarkus-hibernate-validator")
 	implementation("io.quarkus:quarkus-jdbc-h2")
 	implementation("io.quarkus:quarkus-kotlin")
 	implementation("io.quarkus:quarkus-resteasy-jackson")
@@ -40,6 +41,7 @@ tasks.withType<Test> {
 allOpen {
 	annotation("jakarta.ws.rs.Path")
 	annotation("jakarta.enterprise.context.ApplicationScoped")
+	annotation("jakarta.persistence.Entity")
 	annotation("io.quarkus.test.junit.QuarkusTest")
 }
 
